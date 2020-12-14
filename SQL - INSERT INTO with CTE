@@ -1,0 +1,22 @@
+We've created another table called project_worktime. It has the following columns: project_id and avg_worktime. Your task is to use the table allocation and insert the average number of hours spent on each project into the new table project_worktime. Each time, insert the project_id and the average hours_spent. Additionally, do not insert any data for project_id = 1.
+
+WITH
+
+sum AS(
+SELECT DISTINCT
+  project_id,
+  employee_id,
+  SUM(hours_spent) OVER(PARTITION BY project_id, employee_id)
+FROM allocation
+WHERE project_id != 1),
+
+average AS(
+SELECT
+  project_id,
+  avg(sum)
+FROM sum
+GROUP BY project_id)
+
+
+INSERT INTO project_worktime
+SELECT * FROM average
