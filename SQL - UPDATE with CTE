@@ -1,0 +1,11 @@
+The company would like to know which project are the most important. For project for which employees devoted more than 40 hours, add ' (VIP)' at the end of its name. The name should look like this: PROJECT NAME (VIP). Mind the space between project name and (VIP).
+
+WITH vip AS(SELECT
+	project_id, sum(hours_spent)
+FROM allocation
+GROUP BY project_id
+HAVING sum(hours_spent) > 40)
+
+UPDATE project
+SET name = name||' (VIP)'
+WHERE id IN (SELECT project_id FROM vip)
