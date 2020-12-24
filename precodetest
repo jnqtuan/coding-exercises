@@ -1,0 +1,13 @@
+<pre><code class="python">
+
+titles = {1: 'Great!', 2: 'Awesome!', 3: 'Fantastic!', 4: 'Cool!'}
+
+def get_mean_length(input_dict):
+  sum = 0
+  for values in input_dict.values():
+    sum += len(values)
+  return sum/len(input_dict)
+
+get_mean_length(titles)
+
+ </code></pre>
