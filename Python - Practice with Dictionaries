@@ -20,8 +20,6 @@ def get_most_frequent_element(string_list):
   most_common = ''
   appearances = 0
   for k,v in dict.items():
-    #most_common = ''
-    #appearances = 0
     if v > appearances:
       appearances = v
       most_common = k
