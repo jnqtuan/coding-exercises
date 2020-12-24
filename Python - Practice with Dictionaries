@@ -1,3 +1,6 @@
+Create a function named get_most_frequent_element(string_list) that accepts a list of strings and returns a tuple with two elements, the string which appears most frequently in the list, and the number of appearances of that string.
+
+
 quotation = [
   "'Tis", "sweet", "and", "commendable", "in", "your", "nature", "Hamlet",
   "To", "give", "these", "mourning", "duties", "to", "your", "father",
