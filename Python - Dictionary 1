@@ -1,0 +1,30 @@
+quotation = [
+  "'Tis", "sweet", "and", "commendable", "in", "your", "nature", "Hamlet",
+  "To", "give", "these", "mourning", "duties", "to", "your", "father",
+  "But", "you", "must", "know", "your", "father", "lost", "a", "father",
+  "That", "father", "lost", "lost", "his", "and", "the", "survivor", "bound",
+  "In", "filial", "obligation", "for", "some", "term",
+  "To", "do", "obsequious", "sorrow", "but", "to", "persever",
+  "In", "obstinate", "condolement", "is", "a", "course",
+  "Of", "impious", "stubbornness", "'tis", "unmanly", "grief"
+]
+
+def get_most_frequent_element(string_list):
+  dict = {}
+  for word in string_list:
+    if word not in dict:
+      dict[word] = 1
+    elif word in dict:
+      dict[word] += 1
+    #dict[word] = dict.get(word, 0) + 1
+  most_common = ''
+  appearances = 0
+  for k,v in dict.items():
+    #most_common = ''
+    #appearances = 0
+    if v > appearances:
+      appearances = v
+      most_common = k
+  return (most_common, appearances)
+
+get_most_frequent_element(quotation)
