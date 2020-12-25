@@ -1,0 +1,32 @@
+Take a look at the CSV file. It contains the semicolon-separated results of a study in which male and female subjects with the common cold measured how long they experienced their symptoms (in days).
+
+Your task is to load and process the data to print the following five lines (one empty):
+
+Male subjects: {count_of_male_subjects}
+Average duration: {average_male_duration}
+
+Female subject: {count_of_female_subjects}
+Average duration: {average_female_duration}
+
+
+
+import csv
+
+with open('study.csv') as file:
+  csv_reader = csv.reader(file, delimiter=';')
+  male_count = 0
+  male_total = 0
+  female_count = 0
+  female_total = 0
+  for row in csv_reader:
+    if row[1] == 'M':
+      male_total += float(row[2])
+      male_count += 1
+    elif row[1] == 'F':
+      female_total += float(row[2])
+      female_count += 1
+  print('Male subjects:', male_count)
+  print('Average duration:', male_total/male_count)
+  print('')
+  print('Female subjects:', female_count)
+  print('Average duration:', female_total/female_count)
